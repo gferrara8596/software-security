@@ -14,7 +14,7 @@ char secret[] = "secret key";
 int infd = 0; /* stdin */
 int outfd = 1; /* stdout */
 
-#define DATA_SIZE 512
+#define DATA_SIZE 256
 
 typedef struct _WisdomList {
   struct  _WisdomList *next;
@@ -47,7 +47,6 @@ void get_wisdom(void) {
       l = l->next;
     }
   }
-  write(outfd, "\n", 1);
   return;
 }
 
@@ -79,8 +78,6 @@ void put_wisdom(void) {
       v->next = l;
     }
   }
-
-  write(outfd, "\n", 1);
 
   return;
 }
